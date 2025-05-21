@@ -1,3 +1,10 @@
+---
+title: "Least Significant vs. Most Significant: A Simple Explanation"
+date: 2025-05-22 00:00:00  +0500
+categories: [Tech-Jargons]
+tags: [C]
+---
+
 ### **Least Significant vs. Most Significant: A Simple Explanation**  
 
 Imagine you have a **big number**, like **"1234"**.  
