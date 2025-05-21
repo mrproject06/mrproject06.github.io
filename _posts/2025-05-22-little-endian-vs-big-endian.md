@@ -1,3 +1,10 @@
+---
+title: "Little Endian vs. Big Endian: A Simple Explanation"
+date: 2025-05-22 00:00:00  +0500
+categories: [Tech-Jargons]
+tags: [C]
+---
+
 ### **Little Endian vs. Big Endian: A Simple Story**  
 
 Imagine you have a **big number**, like **"1 2 3 4"**, and you need to **write it down** or **tell it to a friend**.  
