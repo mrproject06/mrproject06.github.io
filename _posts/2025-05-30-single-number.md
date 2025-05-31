@@ -1,6 +1,6 @@
 ---
 title: "Single Number"
-date: 2025-05-38 00:00:00  +0500
+date: 2025-05-30 00:00:00  +0500
 categories: [LeetCode]
 tags: [Array]
 ---
