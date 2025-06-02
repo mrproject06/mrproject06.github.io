@@ -21,47 +21,40 @@ Output: 2, nums = [1,2,_]
 Explanation: Your function should return k = 2, with the first two elements of nums being 1 and 2 respectively.
 It does not matter what you leave beyond the returned k (hence they are underscores).
 
-Here's an efficient C solution to merge two sorted arrays into `nums1`:
+Here's a simple and efficient C solution to remove all occurrences of a given value from an array in-place:
 
 ### Solution Code
 ```c
-void merge(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n) {
-    int i = m - 1;      // Last element of nums1
-    int j = n - 1;      // Last element of nums2
-    int k = m + n - 1;  // Last position of merged array
+int removeElement(int* nums, int numsSize, int val) {
+    int k = 0;  // Initialize the counter for non-val elements
     
-    // Merge from the end
-    while (i >= 0 && j >= 0) {
-        if (nums1[i] > nums2[j]) {
-            nums1[k--] = nums1[i--];
-        } else {
-            nums1[k--] = nums2[j--];
+    for (int i = 0; i < numsSize; i++) {
+        if (nums[i] != val) {
+            nums[k] = nums[i];  // Move non-val element to position k
+            k++;                // Increment count of non-val elements
         }
     }
     
-    // Copy remaining elements from nums2 if any
-    while (j >= 0) {
-        nums1[k--] = nums2[j--];
-    }
+    return k;  // Return the count of elements not equal to val
 }
 ```
 
 ### Explanation
 
-1. **Three Pointers Technique**:
-   - `i` points to the last valid element in `nums1` (index `m-1`)
-   - `j` points to the last element in `nums2` (index `n-1`)
-   - `k` points to the last position in the merged array (index `m+n-1`)
+1. **Initialization**:
+   - `k` is initialized to 0 to keep track of the position where the next non-`val` element should be placed.
 
-2. **Backward Merging**:
-   - Compare elements from the end of both arrays
-   - Place the larger element at position `k`
-   - Move the respective pointer backward
-   - This avoids overwriting elements in `nums1` that haven't been processed yet
+2. **Iteration**:
+   - Loop through each element in the array using index `i`.
+   - For each element, check if it is not equal to `val`.
 
-3. **Remaining Elements**:
-   - If `nums2` has remaining elements after `nums1` is exhausted, copy them directly
-   - No need to handle remaining `nums1` elements as they're already in place
+3. **In-Place Modification**:
+   - If the element is not equal to `val`, it is moved to the position `k` in the array.
+   - `k` is then incremented to point to the next position for a non-`val` element.
+
+4. **Result**:
+   - After processing all elements, `k` will contain the count of elements that are not equal to `val`.
+   - The first `k` elements of the array will contain all the non-`val` elements, and the order of these elements is preserved (though the order of the remaining elements is not important).
 
 ### Example Usage
 
@@ -69,14 +62,16 @@ void merge(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n) {
 #include <stdio.h>
 
 int main() {
-    int nums1[6] = {1, 3, 5, 0, 0, 0};
-    int nums2[3] = {2, 4, 6};
+    int nums[] = {3, 2, 2, 3};
+    int val = 3;
+    int size = sizeof(nums) / sizeof(nums[0]);
     
-    merge(nums1, 6, 3, nums2, 3, 3);
+    int k = removeElement(nums, size, val);
     
-    printf("Merged array: ");
-    for (int i = 0; i < 6; i++) {
-        printf("%d ", nums1[i]);
+    printf("Number of elements not equal to %d: %d\n", val, k);
+    printf("Modified array: ");
+    for (int i = 0; i < k; i++) {
+        printf("%d ", nums[i]);
     }
     
     return 0;
@@ -84,24 +79,16 @@ int main() {
 ```
 
 ### Output
-For inputs:
-- `nums1 = [1, 3, 5, 0, 0, 0]` (m = 3)
-- `nums2 = [2, 4, 6]` (n = 3)
-
-Output:
+For the input array `{3, 2, 2, 3}` and `val = 3`, the output will be:
 ```
-Merged array: 1 2 3 4 5 6
+Number of elements not equal to 3: 2
+Modified array: 2 2
 ```
 
 ### Key Features
+- **Time Complexity**: O(n) - The algorithm makes a single pass through the array.
+- **Space Complexity**: O(1) - The algorithm uses constant extra space.
+- **In-Place Operation**: The array is modified in-place without using additional storage.
+- **Order Preservation**: The relative order of the non-`val` elements is preserved, though the order of the remaining elements (if any) is not important.
 
-- **Time Complexity**: O(m + n) - Single pass through both arrays
-- **Space Complexity**: O(1) - No additional memory used
-- **In-Place Operation**: Modifies `nums1` directly
-- **Stable**: Maintains the order of equal elements
-- **Edge Cases Handled**:
-  - Empty `nums1` or `nums2`
-  - All elements in one array being smaller than the other
-  - Duplicate values between arrays
-
-This solution efficiently merges the arrays while utilizing the existing space in `nums1`, meeting all the problem requirements.
+This solution efficiently meets the problem requirements by ensuring that all non-`val` elements are moved to the front of the array in their original order, while the count of such elements is returned.
