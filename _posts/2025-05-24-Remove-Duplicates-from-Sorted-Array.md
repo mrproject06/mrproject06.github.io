@@ -21,74 +21,76 @@ Output: 2, nums = [1,2,_]
 Explanation: Your function should return k = 2, with the first two elements of nums being 1 and 2 respectively.
 It does not matter what you leave beyond the returned k (hence they are underscores).
 
-Here's a simple and efficient C solution to remove all occurrences of a given value from an array in-place:
+Here's a simple and efficient C solution to remove duplicates from a sorted array in-place:
 
-### Solution Code
 ```c
-int removeElement(int* nums, int numsSize, int val) {
-    int k = 0;  // Initialize the counter for non-val elements
-    
-    for (int i = 0; i < numsSize; i++) {
-        if (nums[i] != val) {
-            nums[k] = nums[i];  // Move non-val element to position k
-            k++;                // Increment count of non-val elements
+int removeDuplicates(int* nums, int numsSize) {
+    if (numsSize == 0) return 0;  // Handle empty array case
+
+    int k = 1;  // Start with 1 since first element is always unique
+
+    for (int i = 1; i < numsSize; i++) {
+        // If current element is different from previous unique element
+        if (nums[i] != nums[k-1]) {
+            nums[k] = nums[i];  // Store the new unique element
+            k++;                // Increment unique count
         }
     }
-    
-    return k;  // Return the count of elements not equal to val
+
+    return k;  // Return number of unique elements
 }
 ```
 
-### Explanation
+### How This Works:
 
 1. **Initialization**:
-   - `k` is initialized to 0 to keep track of the position where the next non-`val` element should be placed.
+   - `k` starts at 1 because the first element is always unique
+   - We begin checking from the second element (`i = 1`)
 
 2. **Iteration**:
-   - Loop through each element in the array using index `i`.
-   - For each element, check if it is not equal to `val`.
+   - Compare each element with the last unique element (at position `k-1`)
+   - If different, it's a new unique element
 
 3. **In-Place Modification**:
-   - If the element is not equal to `val`, it is moved to the position `k` in the array.
-   - `k` is then incremented to point to the next position for a non-`val` element.
+   - Store new unique elements at position `k`
+   - Increment `k` to track the count of unique elements
 
-4. **Result**:
-   - After processing all elements, `k` will contain the count of elements that are not equal to `val`.
-   - The first `k` elements of the array will contain all the non-`val` elements, and the order of these elements is preserved (though the order of the remaining elements is not important).
+4. **Edge Cases Handled**:
+   - Empty array (`numsSize == 0`)
+   - Single-element array (automatically returns 1)
+   - Array with all identical elements
 
-### Example Usage
+### Example Usage:
 
 ```c
 #include <stdio.h>
 
 int main() {
-    int nums[] = {3, 2, 2, 3};
-    int val = 3;
-    int size = sizeof(nums) / sizeof(nums[0]);
-    
-    int k = removeElement(nums, size, val);
-    
-    printf("Number of elements not equal to %d: %d\n", val, k);
+    int nums[] = {0,0,1,1,1,2,2,3,3,4};
+    int size = sizeof(nums)/sizeof(nums[0]);
+
+    int k = removeDuplicates(nums, size);
+
+    printf("Unique elements: %d\n", k);
     printf("Modified array: ");
     for (int i = 0; i < k; i++) {
         printf("%d ", nums[i]);
     }
-    
+
     return 0;
 }
 ```
 
-### Output
-For the input array `{3, 2, 2, 3}` and `val = 3`, the output will be:
+**Output**:
 ```
-Number of elements not equal to 3: 2
-Modified array: 2 2
+Unique elements: 5
+Modified array: 0 1 2 3 4
 ```
 
-### Key Features
-- **Time Complexity**: O(n) - The algorithm makes a single pass through the array.
-- **Space Complexity**: O(1) - The algorithm uses constant extra space.
-- **In-Place Operation**: The array is modified in-place without using additional storage.
-- **Order Preservation**: The relative order of the non-`val` elements is preserved, though the order of the remaining elements (if any) is not important.
+### Key Features:
+- **Time Complexity**: O(n) - single pass through the array
+- **Space Complexity**: O(1) - no additional storage used
+- **Stable**: Maintains original order of unique elements
+- **In-Place**: Modifies the input array directly
 
-This solution efficiently meets the problem requirements by ensuring that all non-`val` elements are moved to the front of the array in their original order, while the count of such elements is returned.
+This solution efficiently solves the problem while meeting all the requirements specified.
