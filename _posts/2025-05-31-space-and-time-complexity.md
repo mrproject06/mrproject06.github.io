@@ -106,7 +106,8 @@ int** storeAllPairs(int jars[], int n) {
 
 ---
 
-## **Summary Table** 📊
+## **Summary Table** 
+
 | Complexity  | Time Example                  | Space Example                |
 |-------------|-------------------------------|------------------------------|
 | **O(1)**    | Eat first jar                 | Remember 1 jar               |
