@@ -84,6 +84,52 @@ from usb pendrive.
 High level driver convert file read request to usb command and forwarded to bus manager which then
 create a packet as per protocol and forward to bus controller and deliver to slave 1. 
 
+I2C adapter or I2C bus controller need to unique for 2 different SoC hence this is chip specific 
+but I2C protocol is same, hence bus manager will remain same.
+
+When it comes to driver development, possibility is to write high level and low level only as there
+are any high chances mid level already provided by linux. 
+
+```
+┌───────────────────────────────┐
+│      Slave Driver #1          │
+│   ──────────────────────────  │
+│      High Level Driver        │
+└──────────────┬────────────────┘
+               ⇅
+┌──────────────▼────────────────┐
+│          SPI Core             │
+│   ──────────────────────────  │
+│      Mid Level Driver         │
+└──────────────┬────────────────┘
+               ⇅
+┌──────────────▼────────────────┐
+│       SPI Controller Drv      │
+│   ──────────────────────────  │
+│       Low Level Driver        │
+└──────────────┬────────────────┘
+               ⇅
+┌──────────────▼────────────────┐
+│        SPI Controller         │
+└──────────────┬────────────────┘
+               ⇅
+       ┌───────┴───────┐
+┌──────▼──────┐ ┌─────▼──────┐
+│Slave #1     │ │Slave #2    │
+└─────────────┘ └────────────┘
 
 
+
+```
+Bus controller should be initialize during the boot time then it should be static linked to the 
+kernel. 
+
+Job of bus controller as soon as it get initialize is to confgure the chipset to do bus scan or bus
+probe. Its a hardware feature which can scan the bus to identify the slave i.e. enumeration and 
+no of slave. 
+
+And this driver should set up the transmission and reception and also notify its presence to mid
+layer driver. 
+
+Slave controller can be loadable module as when required it can be initialized.
 
