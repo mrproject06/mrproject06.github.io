@@ -90,6 +90,9 @@ but I2C protocol is same, hence bus manager will remain same.
 When it comes to driver development, possibility is to write high level and low level only as there
 are any high chances mid level already provided by linux. 
 
+
+### Example
+
 ```
 ┌───────────────────────────────┐
 │      Slave Driver #1          │
