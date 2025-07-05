@@ -60,6 +60,7 @@ Now pointing to: 👟
 ---
 
 ### **🔑 Key Concepts**
+
 | Concept | Explanation | Example |
 |---------|-------------|---------|
 | **Array** | A block of items | `locker[4] = {'🧦','👟','🧢','🎒'}` |
@@ -106,12 +107,12 @@ int arr[5] = {5, 10, 15, 20, 25};
 
 Here arr is an array that has 5 elements each of type int.
 
-We can get the address of an element of array by applying & operator in front og subscripted variable
+We can get the address of an element of array by applying & operator in front of subscripted variable
 name. Hence &arr[0] gives address of 0th element, &arr[1] gives the address of 1st element and so on.
 
 The name of array arr denotes the address of the 0th element of array. The name of an array is a constant
 pointer, and according to pointer arthmetic when an integer is added to a pointer then we get the address
-of next element of same base type. Hence arr+1 will denoet the address of the next element arr[1].
+of next element of same base type. Hence arr+1 will denote the address of the next element arr[1].
 
 arr    --> points to 0th element --> &arr[0] --> 2000
 arr+1  --> points to 1st element --> &arr[1] --> 2004
