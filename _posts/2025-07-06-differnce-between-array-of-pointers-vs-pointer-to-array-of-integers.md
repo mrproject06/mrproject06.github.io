@@ -77,6 +77,7 @@ p → [100][200][300][400]  (Points to the WHOLE block)
 ---
 
 ### **Key Differences (Side-by-Side)**
+
 | Feature          | `int *pa[3]`                     | `int (*p)[4]`                   |
 |------------------|----------------------------------|----------------------------------|
 | **Type**         | Array of 3 pointers              | Single pointer to an array of 4  |
@@ -94,7 +95,7 @@ p → [100][200][300][400]  (Points to the WHOLE block)
    ```
 2. **`int (*p)[4]`** → Useful for **2D arrays** or large blocks of memory.  
    ```c
-   int matrix[3][4] = {{1,2,3,4}, {5,6,7,8}, {9,10,11,12}};
+   int matrix[3][4] = { {1,2,3,4}, {5,6,7,8}, {9,10,11,12} };
    int (*p)[4] = matrix;  // Points to the first row
    ```
 
@@ -102,7 +103,7 @@ p → [100][200][300][400]  (Points to the WHOLE block)
 
 ### **Pointer Arithmetic Example**
 ```c
-int arr[3][4] = {{1,2,3,4}, {5,6,7,8}, {9,10,11,12}};
+int arr[3][4] = { {1,2,3,4}, {5,6,7,8}, {9,10,11,12} };
 int (*p)[4] = arr;  // Points to 1st row
 
 printf("%d\n", (*p)[2]);  // 3 (1st row, 3rd element)
@@ -151,6 +152,7 @@ printf("%d", (*p)[2]);      // Output: 300 (3rd house in the block)
 ---
 
 ### **Side-by-Side Comparison**
+
 | Feature          | `int *pa[3]` (Bookshelf)               | `int (*p)[4]` (GPS)                     |
 |------------------|----------------------------------------|-----------------------------------------|
 | **Type**         | Array of 3 pointers                    | Single pointer to a block of 4 integers |
