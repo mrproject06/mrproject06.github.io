@@ -82,6 +82,7 @@ void func2(int **pptr) {
     (*pptr)++;  // Moves the ORIGINAL p to next element
 }
 ```
+
 | Variable (in `func2`) | Value Before | Value After | Notes |
 |-----------------------|--------------|-------------|-------|
 | `pptr` (address of `p`) | `&p` (e.g., `0x2000`) | Same | Points to `p` |
@@ -102,6 +103,7 @@ p  =0x1000,    p =0x1000,    p=0x1004
 ---
 
 ### **Key Takeaways (Tabular Summary)**
+
 | Function | How Pointer is Passed | Effect | Why? |
 |----------|-----------------------|--------|------|
 | `func1(p)` | By value (copy) | **No change** to `p` | Modifies a local copy |

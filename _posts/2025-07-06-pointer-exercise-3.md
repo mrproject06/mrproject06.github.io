@@ -33,6 +33,7 @@ This code demonstrates a **critical pointer mistake** that leads to **undefined 
 ### **Tabular Representation:**
 
 #### **Step 1: Before `func` is called**
+
 | Variable | Value  | Notes                     |
 |----------|--------|---------------------------|
 | `ptr`    | `?`    | Uninitialized (garbage)    |
@@ -40,6 +41,7 @@ This code demonstrates a **critical pointer mistake** that leads to **undefined 
 ---
 
 #### **Step 2: Inside `func`**
+
 | Variable | Value  | Notes                     |
 |----------|--------|---------------------------|
 | `num`    | `10`   | Local to `func`            |
@@ -59,7 +61,7 @@ ptr → num (10) [valid here]
 
 | Variable | Value  | Notes                     |
 |----------|--------|---------------------------|
-| `ptr`    | `&num` | **Dangling pointer!**      |
+| `ptr`    | `&num` | **Dangling pointer!**     |
 
 **Memory Layout after `func`:**
 ```

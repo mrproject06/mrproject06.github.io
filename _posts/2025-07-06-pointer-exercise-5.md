@@ -31,6 +31,7 @@ This code fetches a specific value from an array using **pointer arithmetic** an
 ### **Tabular Representation:**
 
 #### **Initial Array Setup:**
+
 | Index (`i`) | Value (`arr[i]`) | Memory Address (Example) |
 |------------|------------------|--------------------------|
 | 0          | 11               | `1000`                   |

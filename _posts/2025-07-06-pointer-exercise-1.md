@@ -93,6 +93,4 @@ Pointer `p` starts here:
 - When you need to **process all elements** of a 2D array without nested loops.  
 - In image processing (pixels are stored linearly).  
 
-Need a real-world analogy? Think of it like **reading a book page-by-page (2D) vs. scanning the entire book as one long tape (1D)**. 😊  
 
-**Want to see how nested loops compare?** Let me know!

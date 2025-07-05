@@ -45,6 +45,7 @@ Here’s what happens step-by-step.
 ### **Tabular Representation:**
 
 #### **Initial Setup (Before `main` runs):**
+
 | Variable | Value  | Address (Example) | Notes                     |
 |----------|--------|-------------------|---------------------------|
 | `a`      | `5`    | `0x1000`          | Global variable           |
