@@ -53,28 +53,30 @@ How peripheral driver will setup with mid-layer ?
 
 ### Example 1: USB HIGH LEVEL DRIVER
 
+```
 static struct usb_driver my_usb_driver = {
 
     .probe = test_probe;
     .disconnect = test_disconnect;
     .id_table = dev_table;
 };
+```
 
 when device is connected which is hot plugged then probe function will get called and when device
-is removed then test_disconnect will get called. 
+is removed then test _ disconnect will get called. 
 
-id table is a pointer of type usb_device_id and this id table is supposed to be initialized with the
-address of usb_device_id where high level driver is supposed to specific vendor id device id and 
+id table is a pointer of type usb _ device _ id and this id table is supposed to be initialized with the
+address of usb _ device _ id where high level driver is supposed to specific vendor id device id and 
 class id with respect to usb standard.
 
 
-It will hold the array of usb_Device_id which might have single or n number of usb devices containing
+It will hold the array of usb _ Device _ id which might have single or n number of usb devices containing
 vendor and device id. And until that deice id is found probe should not called. 
 
 
 When module is deployed it has its own initialize routine and we are supposed to pass this as argument
 to register with mid layer.
-module_usb_driver (my_usb_driver);
+module _ usb _ driver (my _ usb _ driver);
 
 ```
 static struct usb_device_id dev_table[] = {
@@ -99,13 +101,14 @@ module_usb_driver(my_usb_driver);
 
 ```
 
-init function-->usb-core--> when deivce find-->probe
+init function --> usb-core--> when deivce find --> probe
 
 driver intialization vs module initialization
-probe vs module_init function
+probe vs module _ init function
 
 sample code 
 
+```
 static int module_init()
 {
     register_usb_Driver(&my_usb_driver);
@@ -116,6 +119,7 @@ static void module _exit()
 {
     deregister_usb_driver();
 }
+```
 
 ### Example 2: I2C HIGH LEVEL DRIVER
 
