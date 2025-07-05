@@ -115,12 +115,4 @@ Latentcy of operation because of this 3 layered arch hence linux cannot be real 
     1. Register with core layer.
     2. Implements functions to perform ops on slae device as per kernel driver model
 
-
-
-
-
-
-- High Level Driver
-    
-
     
