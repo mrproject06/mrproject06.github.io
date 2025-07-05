@@ -1,5 +1,5 @@
 ---
-title: "2025-05-22-least-significant-vs-most-significant.md"
+title: "Pointers and 1-D Array"
 date: 2025-07-05 00:00:00  +0500
 categories: [Tech-Jargons]
 tags: [C]

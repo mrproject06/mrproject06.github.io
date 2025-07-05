@@ -1,5 +1,5 @@
 ---
-title: "Pointer amd 2-D arrays"
+title: "Pointer and 2-D arrays"
 date: 2025-07-05 00:00:00  +0500
 categories: [Tech-Jargons]
 tags: [C]
