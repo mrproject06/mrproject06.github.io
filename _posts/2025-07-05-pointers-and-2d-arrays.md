@@ -119,13 +119,11 @@ Dragon: 🐉 // Specific comic
 
 The elements of 2-D array can be accessed with the help of pointer notation also. Suppose arr is
 a 2-D array, we can access any element arr[i][j] of this array using the pointer expression
-*(*(arr+i)+j). 
+`*(*(arr+i)+j)`. 
 
 Let understand this. 
 
 ```
-arr[3][4] -
-
 int arr[3][4] = {{10,11,12,13}, {20,21,22,23}, {30,31,32,33}};
 ```
 
