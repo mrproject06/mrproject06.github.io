@@ -124,7 +124,7 @@ a 2-D array, we can access any element arr[i][j] of this array using the pointer
 Let understand this. 
 
 ```
-int arr[3][4] = {{10,11,12,13}, {20,21,22,23}, {30,31,32,33}};
+int arr[3][4] = { {10,11,12,13}, {20,21,22,23}, {30,31,32,33} };
 ```
 
 We have been talking about 2-D array in terms of rows and columns, but since memory in computer
