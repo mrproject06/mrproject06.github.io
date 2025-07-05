@@ -68,6 +68,7 @@ shelf_ptr (📍)
 ---
 
 ### **🆚 vs Regular Pointer**
+
 | Feature | Pointer to Array | Regular Pointer |
 |---------|------------------|-----------------|
 | **Declares** | `char (*ptr)[4]` | `char *ptr` |
@@ -99,7 +100,7 @@ int *p ; // can point to an integer
 int (*ptr)[5] ; // can point to an array of 5 integers
 int arr[5];
 p = arr; // points to 0th element of arr
-p = &arr; // points to while array arr
+ptr = &arr; // points to while array arr
 ```
 
 **Program to dereference a pointer to an array**
