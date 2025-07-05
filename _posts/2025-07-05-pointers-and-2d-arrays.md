@@ -95,6 +95,7 @@ Entire Store:
 ---
 
 ### **🆚 Pointer Types Comparison**
+
 | Pointer Type | Example | What It Points To | Access Method |
 |--------------|---------|-------------------|---------------|
 | **Single-element pointer** | `char *ptr` | One comic (e.g., `'🦸'`) | `ptr[0]` |
