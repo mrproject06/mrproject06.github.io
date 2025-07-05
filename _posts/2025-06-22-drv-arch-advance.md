@@ -64,9 +64,9 @@ operations are possible with this slave. To support this `Slave Controller` driv
 
 
 Hence in summary, this driver architecture comprise of 3 following type of drivers.
--   1. Slave Controller
--   2. Bus Manager
--   3. Bus Controller
+1. Slave Controller
+2. Bus Manager
+3. Bus Controller
 
 This complexity was not there for device which is memory mapped.
 
