@@ -36,14 +36,14 @@ This code demonstrates a **critical pointer mistake** that leads to **undefined 
 
 | Variable | Value  | Notes                     |
 |----------|--------|---------------------------|
-| `ptr`    | `?`    | Uninitialized (garbage)    |
+| `ptr`    | `?`    | Uninitialized (garbage)   |
 
 ---
 
 #### **Step 2: Inside `func`**
 
-| Variable | Value  | Notes                     |
-|----------|--------|---------------------------|
+| Variable | Value  | Notes                      |
+|----------|--------|----------------------------|
 | `num`    | `10`   | Local to `func`            |
 | `pp`     | `&ptr` | Pointer-to-pointer         |
 | `*pp`    | `&num` | `ptr` now points to `num`  |
