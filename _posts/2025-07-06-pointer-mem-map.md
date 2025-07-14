@@ -235,4 +235,65 @@ void execute_operation(int operation, int a, int b) {
 
 ### Dynamic Memory Allocation
 
-    
+```
+
+void *malloc(size_t size);
+void free(void *ptr);
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int *p = (int *)malloc(4);
+
+    printf("before: %d\n", *p);
+    *p = 4;
+    printf("after: %d\n", *p);
+
+    free(p);
+    return 0;
+}
+```
+
+What happens when malloc fails ?
+
+```
+size_t unsigned int 
+
+#define REQUEST 1*1024*1024*1024 
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+
+    int *p;
+
+    for (int i = 0; i <100000; i++) {
+        p = (int *)malloc(REQUEST);
+        printf("p: %p\n", p);
+        if ( p == NULL)
+            return -1;
+    }
+
+    //free(p);
+    return 0;
+}
+```
+
+### Dangling Pointer
+
+```
+malloc()
+free()
+
+int *p = (int*)malloc(4);
+.
+...
+....
+free(p);
+*p = 10; // p is still holding value from previous allocation 
+*q // using q now but suppose eariler q was 45 and pointing to same memory
+
+//using a memory location after free, hence P = NULL is advisable
+
+```
