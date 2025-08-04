@@ -233,6 +233,24 @@ void execute_operation(int operation, int a, int b) {
 
 ```
 
+```
+Here’s a detailed explanation of lines 23 to 34 in math_library.c:
+
+typedef void (*operation_func)(int, int);
+
+This line defines a new type, operation_func, which is a pointer to a function that takes two int arguments and returns void. This allows you to create arrays or variables that can point to any function matching this signature (like add, subtract, etc.).
+operation_func operations[] = { add, subtract, multiply, divide };
+
+This declares an array called operations where each element is a function pointer of type operation_func.
+The array is initialized with the addresses of four functions: add, subtract, multiply, and divide. Each of these functions matches the signature defined above.
+void execute_operation(int a, int b, int operation) { operations[operation](a, b); }
+
+This function, execute_operation, takes three arguments: two integers (a, b) and an integer operation.
+Inside the function, it uses the operation integer as an index to select the appropriate function from the operations array, then calls that function with a and b as arguments.
+For example, if operation is 0, it calls add(a, b); if 1, it calls subtract(a, b), and so on.
+This pattern allows dynamic selection and execution of mathematical operations using function pointers, making the code modular and extensible.
+```
+
 ### Dynamic Memory Allocation
 
 ```
