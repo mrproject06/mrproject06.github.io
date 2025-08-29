@@ -1,6 +1,6 @@
 ---
-title: "Insertion Sort"
-date: 2025-08-24 00:00:00  +0500
+title: "Quick Sort"
+date: 2025-08-29 00:00:00  +0500
 categories: [Sorting]
 tags: [C]
 ---
