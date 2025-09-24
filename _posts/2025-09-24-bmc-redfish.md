@@ -1,7 +1,7 @@
 ---
 title: "REDFISH"
 date: 2025-09-25 00:00:00  +0500
-categories: [BMC]
+categories: [Server]
 tags: [BMC]
 ---
 
